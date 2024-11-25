@@ -119,5 +119,5 @@ body {
 	animation: linear reveal both;
 	animation-timeline: --revealing-image;
 
-	animation-range: entry 15% cover 40%;
+	animation-range: entry 25% cover 40%;
 }
