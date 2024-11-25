@@ -56,7 +56,7 @@ body {
   }
   
   @media (prefers-reduced-motion: no-preference) {
-    img {
+    ul li img {
       animation: appear linear;
       animation-timeline: view();
       animation-range: entry 0 cover 25%;
@@ -64,7 +64,7 @@ body {
   }
 
 /* image styling */
-  img {
+  ul li img {
     width: 100%;
     max-width: 300px;
     border-radius: 1rem;
@@ -98,3 +98,29 @@ body {
   img:nth-child(2) {
     background-color: yellow;
   }
+
+  /* reveal hidden image */
+
+  @keyframes reveal {
+	from {
+		opacity: 0;
+		clip-path: inset(45% 20% 45% 20%);
+	}
+	to {
+		opacity: 1;
+		clip-path: inset(0% 0% 0% 0%);
+	}
+}
+
+.revealing-image {
+	/* Create View Timeline */
+	view-timeline-name: --revealing-image;
+	view-timeline-axis: block;
+
+	/* Attach animation, linked to the  View Timeline */
+	animation: linear reveal both;
+	animation-timeline: --revealing-image;
+
+	/* Tweak range when effect should run*/
+	animation-range: entry 25% cover 50%;
+}
